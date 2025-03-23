@@ -21,10 +21,3 @@ Clone the repository, install the required dependencies, and run the Flask app l
 1. Upload an image.
 2. Ask a question related to the image.
 3. Receive an answer and confidence score from the model.
-
-## Installation:
-```bash
-git clone https://github.com/yourusername/VQA-Insight.git
-cd VQA-Insight
-pip install -r requirements.txt
-python app.py
