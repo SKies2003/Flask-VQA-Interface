@@ -1,13 +1,18 @@
-# Flask-VQA-Interface
+# Flask-VQA-Interface (Version 2)
 
-A web-based Visual Question Answering (VQA) interface built using Flask. This project allows users to upload an image, ask a question about its content, and receive an answer along with a confidence score. It leverages the power of Transformers and the `visual-question-answering` pipeline to understand and respond to queries related to the provided images.
+A web-based Visual Question Answering (VQA) interface built using Flask. This project allows users to upload an image, ask a question about its content, and receive an AI-generated answer along with a confidence score. Version 2 enhances the result display with additional information sourced from Wikipedia, fact websites, and YouTube videos for a more interactive and informative user experience.
 
 ## Features:
-- **Image Upload:** Users can upload any image in standard formats (e.g., JPEG, PNG).
-- **Question Submission:** Users can ask a question about the uploaded image directly through the interface.
-- **AI-Powered Answers:** The app uses a pre-trained model from the Transformers library to provide accurate answers to the questions.
-- **Confidence Score:** Each answer is accompanied by a confidence score, indicating the model's certainty.
-- **User-Friendly Interface:** A clean and intuitive interface that makes interacting with the VQA model easy and efficient.
+- **Image Upload:** Users can upload any image in standard formats (e.g., JPEG, PNG, GIF).
+- **Question Submission:** Users can ask a question about the uploaded image through a simple interface.
+- **AI-Powered Answers:** Utilizes a pre-trained Visual Question Answering model from the Hugging Face Transformers library.
+- **Confidence Score:** Displays a confidence score showing the model's certainty.
+- **Enhanced Results Display (New in v2):**
+    - **Wikipedia Info:** Shows summarized content about the answer.
+    - **Interesting Facts:** Extracts 4-5 facts from reliable fact websites.
+    - **Video Embeds:** Embeds relevant YouTube videos (educational/documentary style).
+    - **Source Links:** Provides links to the sources for further exploration.
+- **User-Friendly Interface:** Clean and responsive interface with enhanced styling in result display (new result.html and result.css).
 
 ## Getting Started:
 Clone the repository, install the required dependencies, and run the Flask app locally to start using the VQA interface.
