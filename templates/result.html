@@ -8,12 +8,84 @@
 </head>
 <body>
     <div class="container">
-        <h1>VQA Result</h1>
-        <img src="{{ image_url }}" alt="Uploaded Image"><br><br>
-        <p><strong>Question:</strong> {{ question }}</p>
-        <p><strong>Answer:</strong> {{ answer }}</p>
-        <p><strong>Confidence:</strong> {{ confidence }}</p>
-        <a href="/">Ask another question</a>
+        {% if answer not in ['yes', 'no'] and extra_info %}
+        <div class="additional-info">
+            <h2>Additional Information</h2>
+            {% for paragraph in extra_info %}
+                <p>{{ paragraph }}</p>
+            {% endfor %}
+
+            {% if info_videos %}
+            <div class="youtube-videos">
+                <h2>Related Videos</h2>
+                <ul>
+                    {% for video in info_videos %}
+                        <li>
+                            <div class="video-thumbnail">
+                                <a href="https://www.youtube.com/watch?v={{ video['video_id'] }}" target="_blank">
+                                    <img src="https://img.youtube.com/vi/{{ video['video_id'] }}/0.jpg" alt="{{ video['title'] }}">
+                                    <div class="play-overlay">▶</div>
+                                </a>
+                                <p>{{ video['title'] }}</p>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+        
+        <div class="center-section">
+            <img src="{{ image_url }}" alt="Uploaded Image">
+            <div class="question-answer">
+                <h2>Question & Answer</h2>
+                <p><strong>Question:</strong> {{ question }}</p>
+                <p><strong>Answer:</strong> {{ answer }}</p>
+                <p><strong>Confidence:</strong> {{ confidence | round(2) }}</p>
+            </div>
+            <a href="/" class="back-link">Ask another question</a>
+        </div>
+        
+        {% if answer not in ['yes', 'no'] and extra_facts %}
+        <div class="interesting-facts">
+            <h2>Interesting Facts</h2>
+            <p class="highlighted-fact">{{ extra_facts[0] }}</p>
+            <ul>
+                {% for fact in extra_facts[1:] %}
+                    <li>{{ fact | safe }}</li>
+                {% endfor %}
+            </ul>
+            {% if source_url %}
+                <p class="fact-source">
+                    <a href="{{ source_url }}" target="_blank">Source: The Fact Site</a>
+                </p>
+            {% endif %}
+
+            {% if fact_videos %}
+            <div class="youtube-videos">
+                <h2>Explore More</h2>
+                <ul>
+                    {% for video in fact_videos %}
+                        <li>
+                            <div class="video-thumbnail">
+                                <a href="https://www.youtube.com/watch?v={{ video['video_id'] }}" target="_blank">
+                                    <img src="https://img.youtube.com/vi/{{ video['video_id'] }}/0.jpg" alt="{{ video['title'] }}">
+                                    <div class="play-overlay">▶</div>
+                                </a>
+                                <p>{{ video['title'] }}</p>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="footer">
+        <p>Developed and Designed by GSky</p>
     </div>
 </body>
 </html>
