@@ -21,6 +21,8 @@ Clone the repository, install the required dependencies, and run the Flask app l
 - Flask
 - Transformers
 - Pillow
+- requests
+- BeautifulSoup4
 
 ## Usage:
 1. Upload an image.
@@ -31,5 +33,4 @@ Clone the repository, install the required dependencies, and run the Flask app l
 ```bash
 git clone https://github.com/yourusername/VQA-Insight.git
 cd VQA-Insight
-pip install -r requirements.txt
 python app.py
